@@ -1,0 +1,45 @@
+cache:
+- "c:\\sr"
+
+branches:
+  # whitelist
+  only:
+    - master
+    - /^v\d+\.\d+\.\d+.*$/
+
+build: off
+
+clone_folder: "c:\\stack"
+environment:
+  global:
+    STACK_ROOT: "c:\\sr"
+    TARGET: x86_64-pc-windows-msvc
+
+install:
+- choco install make
+- curl -sS -ostack.zip -L --insecure http://www.stackage.org/stack/windows-i386
+- 7z x stack.zip -oC:\Users\appveyor\AppData\Roaming\local\bin stack.exe
+
+build: false
+
+before_test:
+# http://help.appveyor.com/discussions/problems/6312-curl-command-not-found
+- set PATH=C:\Program Files\Git\mingw64\bin;C:\Users\appveyor\AppData\Roaming\local\bin;%CD%\bin;%PATH%
+- stack --no-terminal install --install-ghc --only-dependencies
+- stack --no-terminal setup
+
+test_script:
+- echo "" | stack --no-terminal test
+
+before_deploy:
+- ps: ci\before_deploy.ps1
+# Use this to strip out directory structure
+- ps: Get-ChildItem build\*.tar.gz | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+
+deploy:
+  - provider: GitHub
+    auth_token: fixme
+    description: ''
+    on:
+      branch: master
+      appveyor_repo_tag: true
