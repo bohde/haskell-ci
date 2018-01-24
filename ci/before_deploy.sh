@@ -15,7 +15,7 @@ main() {
 
     # build a release version
     mkdir -p "$td/release"
-    stack build --local-bin-path="$td/release" --ghc-options="-O2 -optl-static -optl-pthread" --copy-bins
+    stack build --local-bin-path="$td/release" --ghc-options="-O2" --copy-bins
 
     pushd "$td/release"
     tar czf "$out_dir/${JOB_NAME}-${TRAVIS_TAG}-${TARGET}-release.tar.gz" ./*
