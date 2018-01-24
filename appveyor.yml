@@ -20,8 +20,6 @@ install:
 - curl -sS -ostack.zip -L --insecure http://www.stackage.org/stack/windows-i386
 - 7z x stack.zip -oC:\Users\appveyor\AppData\Roaming\local\bin stack.exe
 
-build: false
-
 before_test:
 # http://help.appveyor.com/discussions/problems/6312-curl-command-not-found
 - set PATH=C:\Program Files\Git\mingw64\bin;C:\Users\appveyor\AppData\Roaming\local\bin;%CD%\bin;%PATH%
