@@ -1,0 +1,56 @@
+# Use new container infrastructure to enable caching
+sudo: false
+
+# Choose a lightweight base image; we provide our own build tools.
+language: generic
+
+env:
+  global: PROJECT_NAME="haskell-ci"
+
+# Caching so the next build will be fast too.
+cache:
+  directories:
+  - $HOME/.ghc
+  - $HOME/.cabal
+  - $HOME/.stack
+
+matrix:
+  fast_finish: yes
+  include:
+  # linux
+  - env: TARGET="x86_64-unknown-linux"
+  # osx
+  - env: TARGET="x86_64-apple-darwin"
+    os: osx
+
+before_install:
+- export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$HOME/.local/bin:$PATH
+- ./ci/install_stack.sh
+
+install:
+- stack --no-terminal --install-ghc --only-dependencies
+
+script:
+- stack --no-terminal test
+
+before_deploy:
+  - ci/before_deploy.sh
+
+deploy:
+  api_key:
+    secure: fixme
+  file_glob: true
+  file: build/$PROJECT_NAME-$TRAVIS_TAG-$TARGET.*
+  on:
+    tags: true
+  provider: releases
+  skip_cleanup: true
+
+notifications:
+  email: false
+
+branches:
+  only:
+  - master
+  # this is needed to release tags
+  - /^v\d+\.\d+\.\d+.*$/
