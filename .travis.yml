@@ -28,7 +28,7 @@ before_install:
 - ./ci/install_stack.sh
 
 install:
-- stack --no-terminal --install-ghc --only-dependencies
+- stack --no-terminal install --install-ghc --only-dependencies
 
 script:
 - stack --no-terminal test
