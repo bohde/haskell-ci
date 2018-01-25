@@ -58,4 +58,4 @@ branches:
   only:
   - master
   # this is needed to release tags
-  - /^v\d+\.\d+\.\d+.*$/
+  - /^v\d+\.\d+\.\d+.\d+*$/
