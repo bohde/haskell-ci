@@ -40,7 +40,8 @@ deploy:
     # TODO
     # Add your own token here. Visit https://github.com/settings/tokens/new and give it the repo permissions.
     # Copy that token, and then visit https://ci.appveyor.com/tools/encrypt. Paste the encrypted value below.
-    auth_token: "D2E0MYUE3pcmTVzMfIGDMzY6IVY7pyfE5YraFfbKdnm5ij8PaW0utTcMoRxsEP4X"
+    auth_token:
+      secure: "CBfel9AsG9QTHv2OxF+B0exkrS1opPyEcdz/PuKKADV5IEv8mxvbiATxgyK8lDFZ"
     description: ''
     on:
       branch: master
