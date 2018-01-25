@@ -18,7 +18,7 @@ main() {
     stack build --local-bin-path="$td/release" --ghc-options="-O2" --copy-bins
 
     pushd "$td/release"
-    tar czf "$out_dir/${JOB_NAME}-${TRAVIS_TAG}-${TARGET}-release.tar.gz" ./*
+    tar czf "$out_dir/${PROJECT_NAME}-${TRAVIS_TAG}-${TARGET}-release.tar.gz" ./*
     popd
 
     rm -r "$td"
