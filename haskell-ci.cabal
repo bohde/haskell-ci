@@ -2,7 +2,7 @@ name:                haskell-ci
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/haskell-ci#readme
+homepage:            https://github.com/joshbohde/haskell-ci#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Josh Bohde
