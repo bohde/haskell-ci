@@ -33,7 +33,7 @@ test_script:
 before_deploy:
 - ps: ci\before_deploy.ps1
 # Use this to strip out directory structure
-- ps: Get-ChildItem build\*.tar.gz | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+- ps: Get-ChildItem build\*.zip | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 
 deploy:
   - provider: GitHub
