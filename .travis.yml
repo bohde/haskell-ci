@@ -38,7 +38,12 @@ before_deploy:
 
 deploy:
   api_key:
-    secure: fixme
+    # TODO
+    # Add your own token here. Visit https://github.com/settings/tokens/new and give it the repo permissions.
+    # Copy that token, and then use the Travis client to encrypt it (https://github.com/travis-ci/travis.rb#readme),
+    # e.g. $ travis encrypt "<key from github>"
+    # Paste the resulting encrypted value below
+    secure: "3BkTnlhKS+4IUt98yqOEG6ZWA7Vqps3vOfu/rUmKCoZJMCfvU3Q8oHTMEDLv7r8dP1WDj0Y0xB6NMKVPjZqDc5PRs1AXghxv6viV50ZiV6SyIo6JxsZK1jISHELLJd70lDYKZ0kKpSCwIm4edJLdt6TM551bOBpV5vmiIyy/VzF/R1CBsPDZ4AtUS2w28JS5GFu2bS1KJramqhqtbV+Zto+FvVndcBsET9RWZ7RJsQRd1C1Xb3HVhc9PhByxqjMaYjx/Q74PZ3ya9pDc10iLKCd/3qh12++BzjtLfxGsANfRYsol/oQXjMvlIQWdxTTuFGgYQMQtlGU+ozpNwFokGv80/M0/gG/xcZCcKseCu68+3yqP9gxHIxPkZ2IYmHqPDr4D5ApXZrPBjkzUk1v9U7yprWeeCjdMWPhXRPbNHb4QjAmr8zvnG6l3VupHJO8kIlC77kGw3i14MUzqR3Gn5CniUlSby3x+9DqrUDWBfkFQG8YXTBcM4GIQaafPVOEErk8oU0F50D0yxs5a4S7qfZLCnVgsJHwMiq0aYjeuKF6E0FkvzXHtPAs4hQl+U1YvoXPFzU93lThNHO46uoi43jMfS6qDnJJaW1ULQj+QteZEE8Xqa4aqjS4ziMMZcM8kuGrzNRxswSNH1LOuZJ5U0DCjwmqKeTZ/v2Uhg8y44TE="
   file_glob: true
   file: build/$PROJECT_NAME-$TRAVIS_TAG-$TARGET.*
   on:

@@ -37,7 +37,10 @@ before_deploy:
 
 deploy:
   - provider: GitHub
-    auth_token: fixme
+    # TODO
+    # Add your own token here. Visit https://github.com/settings/tokens/new and give it the repo permissions.
+    # Copy that token, and then visit https://ci.appveyor.com/tools/encrypt. Paste the encrypted value below.
+    auth_token: "D2E0MYUE3pcmTVzMfIGDMzY6IVY7pyfE5YraFfbKdnm5ij8PaW0utTcMoRxsEP4X"
     description: ''
     on:
       branch: master
