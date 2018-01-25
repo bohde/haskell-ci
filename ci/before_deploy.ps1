@@ -15,7 +15,7 @@ function Main {
     stack build --local-bin-path="$release_dir" --ghc-options="-O2" --copy-bins
 
     pushd $release_dir
-    7z a "$out_dir\$($Env:JOB_NAME)-$($Env:APPVEYOR_REPO_TAG_NAME)-$($Env:TARGET)-release.tar.gz" *
+    7z a "$out_dir\$($Env:PROJECT_NAME)-$($Env:APPVEYOR_REPO_TAG_NAME)-$($Env:TARGET)-release.zip" *
     popd
 
     rm $td -r -fo
