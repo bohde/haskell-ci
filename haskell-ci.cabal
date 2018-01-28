@@ -1,7 +1,8 @@
 name:                haskell-ci
 version:             0.0.4.1
--- synopsis:
--- description:
+synopsis:            Template to automatically publish binaries for Windows, Mac, and Linux
+description:
+    A Travis CI & Appveyor template to test your Haskell application and publish binary releases.
 homepage:            https://github.com/joshbohde/haskell-ci#readme
 license:             BSD3
 license-file:        LICENSE
@@ -17,14 +18,14 @@ executable haskell-ci
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
-  build-depends:       base
+  build-depends:       base == 4.6.*
   default-language:    Haskell2010
 
 test-suite haskell-ci-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  build-depends:       base
+  build-depends:       base == 4.6.*
                      , hspec
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
