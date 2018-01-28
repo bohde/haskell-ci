@@ -5,6 +5,7 @@ sudo: false
 language: generic
 
 env:
+  # TODO Change this to your project name
   global: PROJECT_NAME="haskell-ci"
 
 # Caching so the next build will be fast too.
