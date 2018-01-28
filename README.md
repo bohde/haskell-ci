@@ -47,3 +47,10 @@ $ git push --tags
 ```
 
 At this point, Travis CI and Appveyor will recognize this as a release, will build binaries for Linux, Mac, and Windows, and create a new GitHub release with those binaries. For example, see this projects [release page](https://github.com/joshbohde/haskell-ci/releases).
+
+
+## Contributing
+
+Pull requests and issues are enthusiastically accepted.
+
+By participating in this project you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
